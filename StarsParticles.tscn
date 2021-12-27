@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0.0597826, 0.0011363 ), 0.0, 0.0, 0, 0, Vector2( 0.255435, 0.592045 ), 0.0, 0.0, 0, 0, Vector2( 0.684783, 0.973864 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=1]
+emission_shape = 2
+emission_box_extents = Vector3( 0, 360, 0 )
+flag_disable_z = true
+gravity = Vector3( -100, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -50.0
+linear_accel_random = 1.0
+scale = 1.5
+scale_random = 1.0
+scale_curve = SubResource( 3 )
+
+[node name="StarsParticles" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 120
+lifetime = 8.0
+preprocess = 8.0
+process_material = SubResource( 1 )
