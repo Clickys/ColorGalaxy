@@ -22,6 +22,6 @@ z_index = 2
 z_as_relative = false
 
 [node name="StarsParticles" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1280, 325 )
+position = Vector2( 1348, 350 )
 z_index = 1
 z_as_relative = false
