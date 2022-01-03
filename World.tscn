@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Plane.tscn" type="PackedScene" id=1]
 [ext_resource path="res://StarsParticles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/planes/player bullets/laserGreen06.png" type="Texture" id=3]
 [ext_resource path="res://assets/planes/player bullets/laserRed14.png" type="Texture" id=4]
 [ext_resource path="res://assets/planes/player bullets/laserBlue14.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/ka1.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
 
 [node name="World" type="Node2D"]
 
@@ -35,25 +43,78 @@ z_as_relative = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -9.0
-margin_top = -44.0
-margin_right = 4.0
-margin_bottom = 14.0
+margin_left = -22.0
+margin_top = -102.0
+margin_right = 32.0
+margin_bottom = 16.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GreenMissile" type="Sprite" parent="CanvasLayer/MissilesContainer"]
-position = Vector2( 564.74, 27.1588 )
+[node name="GreenMissile" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 500.5, 686.5 )
 rotation = 1.5708
 texture = ExtResource( 3 )
 
-[node name="RedMissile" type="Sprite" parent="CanvasLayer/MissilesContainer"]
-position = Vector2( 632.74, 27.1588 )
+[node name="OneText" type="Label" parent="CanvasLayer/GreenMissile"]
+margin_left = -62.4998
+margin_top = 83.5002
+margin_right = 105.5
+margin_bottom = 144.5
+rect_rotation = 270.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedMissile" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 628.5, 686.5 )
 rotation = 1.5708
 texture = ExtResource( 4 )
 
-[node name="BlueMissile" type="Sprite" parent="CanvasLayer/MissilesContainer"]
-position = Vector2( 699.898, 26.8068 )
+[node name="TwoText" type="Label" parent="CanvasLayer/RedMissile"]
+margin_left = -62.4998
+margin_top = 83.5004
+margin_right = 105.5
+margin_bottom = 144.5
+rect_rotation = 270.0
+custom_fonts/font = SubResource( 1 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueMissile" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 756.5, 686.5 )
 rotation = 1.5708
 texture = ExtResource( 5 )
+
+[node name="ThreeText" type="Label" parent="CanvasLayer/BlueMissile"]
+margin_left = -62.4998
+margin_top = 83.5002
+margin_right = 105.5
+margin_bottom = 144.5
+rect_rotation = 270.0
+custom_fonts/font = SubResource( 1 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 88.0
+margin_top = 664.0
+margin_right = 267.0
+margin_bottom = 683.0
+custom_fonts/font = SubResource( 2 )
+text = "Choose missile :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
