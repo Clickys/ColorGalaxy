@@ -23,7 +23,7 @@ bg_color = Color( 0.419608, 0.0823529, 0.0823529, 1 )
 [node name="World" type="Node2D"]
 
 [node name="PlanetSpawnerBackground" parent="." instance=ExtResource( 7 )]
-z_index = 1
+z_index = 2
 
 [node name="Background" type="Node" parent="."]
 
