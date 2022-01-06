@@ -34,4 +34,3 @@ func spawn_planet():
 	var planet_instance = spawn_planets[rng.randi_range(0, spawn_planets.size() -1)].instance()
 	planet_instance.global_position = spawn_position.global_position
 	get_tree().current_scene.add_child(planet_instance)
-	
