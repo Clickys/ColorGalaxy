@@ -21,3 +21,8 @@ shape = SubResource( 1 )
 
 [node name="MissilePosition" type="Position2D" parent="."]
 position = Vector2( 83, 17 )
+
+[node name="MissileFireTracking" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="MissileFireTracking" to="." method="_on_MissileFireTracking_timeout"]
