@@ -18,7 +18,13 @@
 			"character": "character-1641509598.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Hey kid ! Welcome , i will teach you how to drive your spaceship ! "
+			"text": "Hey kid ! Welcome , its time to pick your spaceship for you adventure!! Press enter to continue..."
+		},
+		{
+			"character": "character-1641509598.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "User left and right arrows to choose your spaceship."
 		}
 	],
 	"metadata": {

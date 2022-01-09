@@ -1,12 +1,121 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://EntryScene.gd" type="Script" id=1]
 [ext_resource path="res://StarsParticles.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Plane.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PlaneGreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PlaneBlue.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Music/GalacticTemple.ogg" type="AudioStream" id=6]
 
-[node name="EntryScene" type="Node2D"]
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ka1.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 0.00392157, 0.00392157, 0.576471 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.00392157, 1, 0.0313726, 0.576471 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0.0470588, 0.984314, 0.576471 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "AnimateBlue"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlaneBlue:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 936, 184 ), Vector2( 936, 160 ), Vector2( 936, 184 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "AnimateGreen"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlaneGreen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 624, 184 ), Vector2( 624, 160 ), Vector2( 624, 184 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "AnimateRed"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plane:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 328, 184 ), Vector2( 328, 160 ), Vector2( 328, 184 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plane:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 328, 184 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlaneGreen:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 624, 184 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlaneBlue:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 936, 184 ) ]
+}
+
+[node name="EntryScene" type="Control"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 margin_left = -96.0
 margin_top = -72.0
 margin_right = 1432.0
@@ -18,3 +127,81 @@ __meta__ = {
 
 [node name="StarsParticles" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1344, 336 )
+
+[node name="Plane" parent="." instance=ExtResource( 3 )]
+position = Vector2( 328, 184 )
+scale = Vector2( 2, 2 )
+script = null
+
+[node name="PlaneGreen" parent="." instance=ExtResource( 4 )]
+position = Vector2( 624, 184 )
+scale = Vector2( 2, 2 )
+script = null
+
+[node name="PlaneBlue" parent="." instance=ExtResource( 5 )]
+position = Vector2( 936, 184 )
+scale = Vector2( 2, 2 )
+script = null
+
+[node name="Red" type="Button" parent="."]
+margin_left = 296.0
+margin_top = 248.0
+margin_right = 356.0
+margin_bottom = 275.0
+focus_neighbour_left = NodePath("../Blue")
+focus_neighbour_right = NodePath("../Green")
+size_flags_horizontal = 2
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 4 )
+text = "Red"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Green" type="Button" parent="."]
+margin_left = 608.0
+margin_top = 248.0
+margin_right = 668.0
+margin_bottom = 275.0
+focus_neighbour_left = NodePath("../Red")
+focus_neighbour_right = NodePath("../Blue")
+size_flags_horizontal = 2
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 5 )
+text = "GREEN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Blue" type="Button" parent="."]
+margin_left = 920.0
+margin_top = 248.0
+margin_right = 980.0
+margin_bottom = 275.0
+focus_neighbour_left = NodePath("../Green")
+focus_neighbour_right = NodePath("../Red")
+size_flags_horizontal = 2
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/focus = SubResource( 6 )
+text = "BLUE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -25.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.5
+anims/AnimateBlue = SubResource( 10 )
+anims/AnimateGreen = SubResource( 9 )
+anims/AnimateRed = SubResource( 7 )
+anims/RESET = SubResource( 8 )

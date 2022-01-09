@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GalacticTemple.ogg-7d7c3f6ebe0c2d76af08c08ac2dd5641.oggstr"
+
+[deps]
+
+source_file="res://assets/Music/GalacticTemple.ogg"
+dest_files=[ "res://.import/GalacticTemple.ogg-7d7c3f6ebe0c2d76af08c08ac2dd5641.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
