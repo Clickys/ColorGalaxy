@@ -63,8 +63,12 @@ _global_script_class_icons={
 [application]
 
 config/name="ColorGalaxy"
-run/main_scene="res://World.tscn"
+run/main_scene="res://EntryScene.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://GameManager.gd"
 
 [display]
 

@@ -205,3 +205,7 @@ anims/AnimateBlue = SubResource( 10 )
 anims/AnimateGreen = SubResource( 9 )
 anims/AnimateRed = SubResource( 7 )
 anims/RESET = SubResource( 8 )
+
+[connection signal="pressed" from="Red" to="." method="_on_Red_pressed"]
+[connection signal="pressed" from="Green" to="." method="_on_Green_pressed"]
+[connection signal="pressed" from="Blue" to="." method="_on_Blue_pressed"]
