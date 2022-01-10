@@ -4,7 +4,8 @@ onready var mouse_btn_red = $Red
 onready var mouse_btn_blue = $Blue
 onready var mouse_btn_green = $Green
 onready var animation_player = $AnimationPlayer
-
+onready var option_sound = $OptionSound
+onready var start_game_sound = $StartGame
 
 func _ready() -> void:
 	var new_dialog = Dialogic.start('entry_scene') 
@@ -13,8 +14,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	btn_focus_check()
-	
-		
+	check_input()	
+
+
 func btn_focus_check():
 	var focus_btn = get_focus_owner()
 	if Input.is_action_just_pressed("ui_down"):
@@ -38,3 +40,12 @@ func _on_Green_pressed() -> void:
 func _on_Blue_pressed() -> void:
 	get_tree().change_scene("res://World.tscn")
 	GameManager.player_spaceship_choice = GameManager.BLUE_SPACESHIP
+
+func play_option_sound():
+	option_sound.play()
+
+func check_input():
+	if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_left"):
+		option_sound.play()
+	if Input.is_action_just_pressed("ui_accept"):
+		start_game_sound.play()

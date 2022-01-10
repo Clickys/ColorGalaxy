@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://EntryScene.gd" type="Script" id=1]
 [ext_resource path="res://StarsParticles.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://PlaneGreen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://PlaneBlue.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/Music/GalacticTemple.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/Music/10_select2.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/Music/41_enginespeedup.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://assets/fonts/ka1.ttf"
@@ -205,6 +207,15 @@ anims/AnimateBlue = SubResource( 10 )
 anims/AnimateGreen = SubResource( 9 )
 anims/AnimateRed = SubResource( 7 )
 anims/RESET = SubResource( 8 )
+
+[node name="OptionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -30.0
+
+[node name="StartGame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0
+pitch_scale = 0.63
 
 [connection signal="pressed" from="Red" to="." method="_on_Red_pressed"]
 [connection signal="pressed" from="Green" to="." method="_on_Green_pressed"]
