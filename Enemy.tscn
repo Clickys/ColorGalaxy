@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/enemies/PNG/Spaceships/01/Spaceship_01_YELLOW.png" type="Texture" id=1]
-[ext_resource path="res://EnemyHurtbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Hurtbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemy.gd" type="Script" id=3]
 [ext_resource path="res://assets/enemies/PNG/Flame_01.png" type="Texture" id=4]
 [ext_resource path="res://assets/enemies/PNG/Flame_02.png" type="Texture" id=5]
 
@@ -17,8 +18,11 @@ animations = [ {
 radius = 24.0
 height = 32.0
 
+[sub_resource type="CircleShape2D" id=66]
+
 [node name="Enemy" type="KinematicBody2D"]
 z_index = 1
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 4.71239
@@ -37,5 +41,10 @@ playing = true
 [node name="CollisionShape2D" parent="EnemyHurtbox" index="0"]
 rotation = 1.5708
 shape = SubResource( 65 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 66 )
+
+[connection signal="area_entered" from="EnemyHurtbox" to="." method="_on_EnemyHurtbox_area_entered"]
 
 [editable path="EnemyHurtbox"]

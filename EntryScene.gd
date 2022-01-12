@@ -7,19 +7,14 @@ onready var animation_player = $AnimationPlayer
 onready var option_sound = $OptionSound
 onready var start_game_sound = $StartGame
 
+
 func _ready() -> void:
 	var new_dialog = Dialogic.start('entry_scene') 
 	get_tree().current_scene.call_deferred("add_child", new_dialog)
-	print("entry scene  is ready")
-	
-func _enter_tree() -> void:
-	print("entryscene entered tree")
-
 	
 func _process(delta: float) -> void:
 	btn_focus_check()
 	check_input()	
-
 
 func btn_focus_check():
 	var focus_btn = get_focus_owner()
@@ -29,8 +24,9 @@ func btn_focus_check():
 		animation_player.play("AnimateRed")
 	elif focus_btn.name == "Green":
 		animation_player.play("AnimateGreen")
-	else:
+	elif focus_btn.name == "Blue":
 		animation_player.play("AnimateBlue")
+
 		
 func _on_Red_pressed() -> void:
 	GameManager.player_spaceship_choice = GameManager.RED_SPACESHIP
