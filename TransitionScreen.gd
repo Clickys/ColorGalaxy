@@ -4,6 +4,12 @@ onready var anim_player = $AnimationPlayer
 
 signal transitioned
 
+func _enter_tree() -> void:
+	print("transitionscreen enered tree")
+	
+func _ready() -> void:
+	print("transitionscreen is ready")
+
 func transition():
 	anim_player.play("fade_to_black")
 

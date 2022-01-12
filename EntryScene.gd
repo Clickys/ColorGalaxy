@@ -10,7 +10,11 @@ onready var start_game_sound = $StartGame
 func _ready() -> void:
 	var new_dialog = Dialogic.start('entry_scene') 
 	get_tree().current_scene.call_deferred("add_child", new_dialog)
+	print("entry scene  is ready")
 	
+func _enter_tree() -> void:
+	print("entryscene entered tree")
+
 	
 func _process(delta: float) -> void:
 	btn_focus_check()
