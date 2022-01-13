@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/world/TM_1.png" type="Texture" id=1]
 [ext_resource path="res://Plane.gd" type="Script" id=2]
-[ext_resource path="res://PlaneFire.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SpaceShipExaustFire.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.9999
@@ -26,6 +26,8 @@ position = Vector2( 92, 13 )
 [node name="MissileFireTracking" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Particles2D" parent="." instance=ExtResource( 3 )]
+[node name="SpaceShipExaustFire" parent="." instance=ExtResource( 4 )]
+position = Vector2( -32, -2 )
+rotation = 3.14159
 
 [connection signal="timeout" from="MissileFireTracking" to="." method="_on_MissileFireTracking_timeout"]

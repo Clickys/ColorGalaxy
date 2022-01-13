@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/enemy_destroy.wav-4cc6a500e5eeb705c2ee8eaee547bcd6.sample"
+
+[deps]
+
+source_file="res://assets/explosions/SoundEffects/enemy_destroy.wav"
+dest_files=[ "res://.import/enemy_destroy.wav-4cc6a500e5eeb705c2ee8eaee547bcd6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
