@@ -46,7 +46,6 @@ margin_bottom = 143.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
-text = "This is a test captain this is a test ! "
 percent_visible = 0.0
 script = ExtResource( 3 )
 __meta__ = {
@@ -73,4 +72,5 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="Panel"]
 
+[connection signal="tween_completed" from="Panel/DialogText/DialogTween" to="Panel" method="_on_DialogTween_tween_completed"]
 [connection signal="tween_completed" from="Panel/Tween" to="Panel" method="_on_Tween_tween_completed"]

@@ -6,12 +6,26 @@ onready var mouse_btn_green = $Green
 onready var animation_player = $AnimationPlayer
 onready var option_sound = $OptionSound
 onready var start_game_sound = $StartGame
+onready var dialog = $SceneDialogs/Panel
 
+var storymode = {
+	"entry_scene": {
+		"first_text": "",
+		"second_text": ""
+	},
+	"fight_scene": {
+		"first_text": ""
+	}
+}
 
 func _ready() -> void:
 	#var new_dialog = Dialogic.start('entry_scene') 
 	#get_tree().current_scene.call_deferred("add_child", new_dialog)
 	mouse_btn_red.grab_focus()
+	dialog.add_storymode_text("entry_scene", "first_text", "This is a test from entryscene.gd")
+	dialog.add_storymode_text("entry_scene", "second_text", "This is the second text")
+	dialog.start_dialog()
+
 	
 func _process(delta: float) -> void:
 	btn_focus_check()
