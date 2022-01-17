@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/astonaut/Veera_01_Side_Uniform_Happy.png" type="Texture" id=1]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.192157, 0.145098, 0.145098, 0.541176 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 0.352941 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 9
+
+[node name="SceneDialogs" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 230.0
+margin_top = -117.0
+margin_right = -231.0
+margin_bottom = 2.0
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogText" type="Label" parent="Panel"]
+margin_left = 26.0
+margin_top = 10.0
+margin_right = 610.0
+margin_bottom = 143.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "This is a test captain this is a test ! "
+
+[node name="DialogAvatar" type="TextureRect" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 278.5
+margin_top = -200.0
+margin_right = 1097.5
+margin_bottom = 300.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}

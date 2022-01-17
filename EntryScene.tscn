@@ -229,9 +229,6 @@ position = Vector2( 936, 184 )
 scale = Vector2( 2, 2 )
 script = null
 
-[node name="Particles2D" parent="PlaneBlue" index="4"]
-emitting = true
-
 [node name="Red" type="Button" parent="."]
 margin_left = 296.0
 margin_top = 248.0

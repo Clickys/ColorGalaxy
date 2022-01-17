@@ -4,7 +4,7 @@ const world = preload("res://World.tscn")
 
 onready var transition_scene = $TransitionScreen
 onready var entry_scene = $CurrentScene/EntryScene
-	
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		transition_scene.transition()
