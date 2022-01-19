@@ -31,6 +31,10 @@ func start_dialog():
 	$Tween.interpolate_property(self, "rect_position", Vector2(230,800), Vector2(230, 603), 2.0, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 	$Tween.start()
 
+func close_dialog():
+	$FinishedDialog.interpolate_property(self, "rect_position", Vector2(230,603), Vector2(230, 800), Tween.TRANS_EXPO, Tween.EASE_OUT_IN)
+	$FinishedDialog.start()
+	
 func add_storymode_text(story_scene, text_level, text):
 	var current_scene = storymode.get(story_scene)
 	current_scene[text_level] = text
@@ -50,3 +54,6 @@ func add_storymode_text(story_scene, text_level, text):
 		print(first_text_shown, second_text_shown)
 		emit_signal("dialog_finished")
 		
+func _on_Panel_dialog_finished() -> void:
+	print("close dialog")
+	close_dialog()
