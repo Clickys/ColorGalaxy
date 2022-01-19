@@ -22,14 +22,15 @@ func _ready() -> void:
 	#var new_dialog = Dialogic.start('entry_scene') 
 	#get_tree().current_scene.call_deferred("add_child", new_dialog)
 	mouse_btn_red.grab_focus()
-	dialog.add_storymode_text("entry_scene", "first_text", "This is a test from entryscene.gd")
-	dialog.add_storymode_text("entry_scene", "second_text", "This is the second text")
+	dialog.add_storymode_text("fight_scene", "first_text", "This is a fight scene")
 	dialog.start_dialog()
 
 	
 func _process(delta: float) -> void:
 	btn_focus_check()
-	check_input()	
+	check_input()
+	if Input.is_action_just_pressed("ui_down"):
+		dialog.add_storymode_text("entry_scene", "second_text", "This is the second text entryscene")
 
 func btn_focus_check():
 	var focus_btn = get_focus_owner()

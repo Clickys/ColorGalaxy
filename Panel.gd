@@ -1,7 +1,10 @@
 extends Panel
 
 onready var dialog_text = $DialogText
+var first_text_shown = false
+var second_text_shown = false
 
+signal dialog_finished
 
 var storymode = {
 	"entry_scene": {
@@ -9,7 +12,8 @@ var storymode = {
 		"second_text": ""
 	},
 	"fight_scene": {
-		"first_text": ""
+		"first_text": "",
+		"second_text": "",
 	}
 }
 func _ready() -> void:
@@ -33,8 +37,16 @@ func add_storymode_text(story_scene, text_level, text):
 
 	if text_level == "first_text":
 		dialog_text.text = current_scene[text_level]
-	yield()
+		first_text_shown = true
+		return
+		
+	if text_level == "second_text" and first_text_shown == true:
+		dialog_text.text = ""
+		dialog_text.text = current_scene[text_level]
+		dialog_text.start_typewrite()
+		second_text_shown = true
 	
-func _on_DialogTween_tween_completed(object: Object, key: NodePath) -> void:
-	if Input.is_action_just_pressed("ui_down"):
-		pass
+	if second_text_shown == true and first_text_shown == true:
+		print(first_text_shown, second_text_shown)
+		emit_signal("dialog_finished")
+		
