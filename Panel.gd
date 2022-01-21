@@ -16,10 +16,11 @@ var storymode = {
 		"second_text": "",
 	}
 }
-func _ready() -> void:
-	pass
-#	start_dialog()
-#	add_storymode_text("fight_scene", "first_text" , "this is the firs text")
+
+func _process(delta: float) -> void:
+	if first_text_shown == true and second_text_shown == false:
+		if Input.is_action_just_pressed("ui_down"):
+			add_storymode_text("entry_scene", "second_text", "This is the second text entryscene")
 	
 func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:
 	dialog_text.start_typewrite()
@@ -42,7 +43,7 @@ func add_storymode_text(story_scene, text_level, text):
 	if text_level == "first_text":
 		dialog_text.text = current_scene[text_level]
 		first_text_shown = true
-		return
+		
 		
 	if text_level == "second_text" and first_text_shown == true:
 		dialog_text.text = ""
@@ -57,3 +58,4 @@ func add_storymode_text(story_scene, text_level, text):
 func _on_Panel_dialog_finished() -> void:
 	print("close dialog")
 	close_dialog()
+

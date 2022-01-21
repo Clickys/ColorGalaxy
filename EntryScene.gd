@@ -29,8 +29,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	btn_focus_check()
 	check_input()
-	if Input.is_action_just_pressed("ui_down"):
-		dialog.add_storymode_text("entry_scene", "second_text", "This is the second text entryscene")
+	
 
 func btn_focus_check():
 	var focus_btn = get_focus_owner()
