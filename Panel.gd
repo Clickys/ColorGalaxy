@@ -3,6 +3,7 @@ extends Panel
 onready var dialog_text = $DialogText
 var first_text_shown = false
 var second_text_shown = false
+var dialog_text_count = 0
 
 signal dialog_finished
 
@@ -58,4 +59,3 @@ func add_storymode_text(story_scene, text_level, text):
 func _on_Panel_dialog_finished() -> void:
 	print("close dialog")
 	close_dialog()
-

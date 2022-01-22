@@ -16,5 +16,7 @@ script = ExtResource( 1 )
 [connection signal="transitioned" from="TransitionScreen" to="." method="_on_TransitionScreen_transitioned"]
 
 [editable path="CurrentScene/EntryScene"]
+[editable path="CurrentScene/EntryScene/Plane"]
+[editable path="CurrentScene/EntryScene/Plane/SpaceShipExaustFire"]
 [editable path="CurrentScene/EntryScene/PlaneBlue"]
 [editable path="TransitionScreen"]

@@ -220,6 +220,9 @@ position = Vector2( 328, 184 )
 scale = Vector2( 2, 2 )
 script = null
 
+[node name="AnimatedSprite" parent="Plane/SpaceShipExaustFire" index="0"]
+visible = false
+
 [node name="PlaneGreen" parent="." instance=ExtResource( 4 )]
 position = Vector2( 624, 184 )
 scale = Vector2( 2, 2 )
@@ -308,4 +311,6 @@ pitch_scale = 0.63
 [connection signal="pressed" from="Green" to="." method="_on_Green_pressed"]
 [connection signal="pressed" from="Blue" to="." method="_on_Blue_pressed"]
 
+[editable path="Plane"]
+[editable path="Plane/SpaceShipExaustFire"]
 [editable path="PlaneBlue"]

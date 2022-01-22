@@ -2,6 +2,12 @@ extends KinematicBody2D
 onready var hit_explosion = preload("res://HitExplosion.tscn")
 onready var destroy_explosion = preload("res://PlaneExplosion.tscn")
 onready var spaceship_explosion_sound = preload("res://SpaceshipExplosion.tscn")
+onready var health_bar = $HealthBar
+onready var tween_hp_bar = $HealthBar/HealthBarTween
+onready var hp_bar = $HealthBar
+onready var styleBox = $HealthBar.get_stylebox("fg")
+
+var test = StyleBox
 
 var health = 3 setget set_health
 
@@ -27,7 +33,13 @@ func _on_EnemyHurtbox_area_entered(area: Area2D) -> void:
 	area.get_parent().queue_free()
 
 func set_health(value):
+	var current_progress_bar_color = hp_bar.get("custom_styles/fg").bg_color
+
 	health = value
+	tween_hp_bar.interpolate_property(hp_bar, "value", health, value, 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	#tween_hp_bar.interpolate_property(hp_bar.get("custom_styles/fg"), "bg_color", hp_bar.get("custom_styles/fg").bg_color, Color(100, 100, 100, 50), 2, Tween.TRANS_CUBIC)
+	tween_hp_bar.start()
+	
 	if health == 0:
 		create_destroy_sound_effect()
 		create_destroy_effect()
