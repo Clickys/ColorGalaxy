@@ -9,7 +9,7 @@ onready var styleBox = $HealthBar.get_stylebox("fg")
 
 var test = StyleBox
 
-var health = 3 setget set_health
+var health = 90 setget set_health
 
 
 func create_effect_on_hit(area: Area2D):
@@ -27,17 +27,19 @@ func create_destroy_sound_effect():
 	get_tree().current_scene.add_child(destroy_explosion_sound_i)
 	
 func _on_EnemyHurtbox_area_entered(area: Area2D) -> void:
-	self.health -= 1
+	self.health -= 30
 	if health != 0:
 		create_effect_on_hit(area)
 	area.get_parent().queue_free()
 
 func set_health(value):
-	var current_progress_bar_color = hp_bar.get("custom_styles/fg").bg_color
+#	var current_progress_bar_color = hp_bar.get("custom_styles/fg").bg_color
 
-	health = value
+	
 	tween_hp_bar.interpolate_property(hp_bar, "value", health, value, 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
 	#tween_hp_bar.interpolate_property(hp_bar.get("custom_styles/fg"), "bg_color", hp_bar.get("custom_styles/fg").bg_color, Color(100, 100, 100, 50), 2, Tween.TRANS_CUBIC)
+	
+	health = value
 	tween_hp_bar.start()
 	
 	if health == 0:
