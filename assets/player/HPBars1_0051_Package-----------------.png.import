@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BHP_red.png-8be7e7a0a73f774f63ef07c7506ea6a1.stex"
+path="res://.import/HPBars1_0051_Package-----------------.png-eec2a55a36f76410d443a85965386ff3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/BHP_red.png"
-dest_files=[ "res://.import/BHP_red.png-8be7e7a0a73f774f63ef07c7506ea6a1.stex" ]
+source_file="res://assets/player/HPBars1_0051_Package-----------------.png"
+dest_files=[ "res://.import/HPBars1_0051_Package-----------------.png-eec2a55a36f76410d443a85965386ff3.stex" ]
 
 [params]
 

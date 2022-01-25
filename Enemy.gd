@@ -10,8 +10,11 @@ onready var styleBox = $HealthBar.get_stylebox("fg")
 var test = StyleBox
 
 var health = 90 setget set_health
+var moving_vector = Vector2(-100, 0)
 
-
+func _process(delta: float) -> void:
+	move_and_slide(moving_vector)
+	
 func create_effect_on_hit(area: Area2D):
 	var hit_explosion_i = hit_explosion.instance()
 	hit_explosion_i.global_position = area.global_position
@@ -30,15 +33,12 @@ func _on_EnemyHurtbox_area_entered(area: Area2D) -> void:
 	self.health -= 30
 	if health != 0:
 		create_effect_on_hit(area)
-	area.get_parent().queue_free()
+		
+	if area.name == "Hitbox": # destroy missile
+		area.get_parent().queue_free()
 
 func set_health(value):
-#	var current_progress_bar_color = hp_bar.get("custom_styles/fg").bg_color
-
-	
 	tween_hp_bar.interpolate_property(hp_bar, "value", health, value, 2, Tween.TRANS_CUBIC, Tween.EASE_OUT)
-	#tween_hp_bar.interpolate_property(hp_bar.get("custom_styles/fg"), "bg_color", hp_bar.get("custom_styles/fg").bg_color, Color(100, 100, 100, 50), 2, Tween.TRANS_CUBIC)
-	
 	health = value
 	tween_hp_bar.start()
 	

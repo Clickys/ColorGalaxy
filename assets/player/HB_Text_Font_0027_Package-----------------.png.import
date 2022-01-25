@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BHP_yellow.png-9e42a3c140a306b1d10b7a87087805e0.stex"
+path="res://.import/HB_Text_Font_0027_Package-----------------.png-80139c7ea84d5109a3e619c47fdeeb29.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/BHP_yellow.png"
-dest_files=[ "res://.import/BHP_yellow.png-9e42a3c140a306b1d10b7a87087805e0.stex" ]
+source_file="res://assets/player/HB_Text_Font_0027_Package-----------------.png"
+dest_files=[ "res://.import/HB_Text_Font_0027_Package-----------------.png-80139c7ea84d5109a3e619c47fdeeb29.stex" ]
 
 [params]
 

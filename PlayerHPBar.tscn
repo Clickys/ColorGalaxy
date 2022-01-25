@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PlayerHPBar.gd" type="Script" id=1]
-[ext_resource path="res://assets/player/BHP_red.png" type="Texture" id=2]
-[ext_resource path="res://assets/player/BHP_blue.png" type="Texture" id=3]
-[ext_resource path="res://assets/player/BHP_base.png" type="Texture" id=4]
-[ext_resource path="res://assets/player/BHP_yellow.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/HB_Text_Font_0027_Package-----------------.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/HB_Frames_0215_Package-----------------.png" type="Texture" id=3]
+[ext_resource path="res://assets/player/HB_Fronts_0175_Circle------------------.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/HPBars1_0051_Package-----------------.png" type="Texture" id=5]
 
 [node name="PlayerHPBar" type="Control"]
 anchor_right = 1.0
@@ -17,16 +17,15 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Base" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 280, 636 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 137, 43 )
 z_index = 3
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
-[node name="EnergyBar" type="TextureProgress" parent="CanvasLayer/Base"]
-margin_left = -410.0
-margin_top = 88.0
-margin_right = 564.0
-margin_bottom = 223.0
+[node name="HealthBar" type="TextureProgress" parent="CanvasLayer/Base"]
+margin_left = -106.0
+margin_top = -15.9999
+margin_right = 94.0
+margin_bottom = 14.0001
 max_value = 90.0
 value = 90.0
 texture_progress = ExtResource( 5 )
@@ -34,26 +33,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthBar" type="TextureProgress" parent="CanvasLayer/Base"]
-margin_left = -376.0
-margin_top = -116.0
-margin_right = 598.0
-margin_bottom = 19.0
-max_value = 90.0
-value = 90.0
-texture_progress = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Circle" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( -96, 0.00012207 )
+texture = ExtResource( 4 )
 
-[node name="ManaBar" type="TextureProgress" parent="CanvasLayer/Base"]
-margin_left = -370.0
-margin_top = -4.0
-margin_right = 604.0
-margin_bottom = 131.0
-max_value = 90.0
-value = 90.0
-texture_progress = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HP" type="Sprite" parent="CanvasLayer/Base"]
+position = Vector2( -94, -1.99988 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="HpReduceTween" type="Tween" parent="CanvasLayer/Base"]

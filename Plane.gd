@@ -6,11 +6,11 @@ onready var green_missile = preload("res://PlaneMissileGreen.tscn")
 onready var missile_pos = $MissilePosition
 
 signal fired
+signal reduce_hp_bar
 
 var velocity = Vector2.ZERO
 var can_fire = true
-
-
+var player_health = 90 setget set_player_health
 
 enum {
 	BLUE_MISSILE,
@@ -24,6 +24,7 @@ export (int) var plane_friction = 20
 
 var missile_state = BLUE_MISSILE
 
+	
 func _physics_process(delta: float) -> void:
 	plane_move(delta)
 	check_selected_missile()
@@ -31,7 +32,12 @@ func _physics_process(delta: float) -> void:
 		
 	velocity = move_and_slide(velocity)
 	
-
+func set_player_health(value):
+	player_health = value
+	print(player_health)
+	if player_health == 0:
+		queue_free()
+		
 func plane_move(delta):
 	var player_input = Vector2.ZERO
 	player_input.y = Input.get_axis("ui_up", "ui_down")
@@ -71,8 +77,9 @@ func check_selected_missile():
 	if Input.is_action_just_pressed("blue_missile_selected"):
 		missile_state = BLUE_MISSILE
 
-
-
-
 func _on_MissileFireTracking_timeout() -> void:
 	can_fire = true
+
+func _on_PlayerHurtbox_area_entered(area: Area2D) -> void:
+	self.player_health -= 30
+	emit_signal("reduce_hp_bar")
