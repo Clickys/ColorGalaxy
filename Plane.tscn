@@ -8,6 +8,7 @@
 [sub_resource type="CapsuleShape2D" id=2]
 
 [node name="Plane" type="KinematicBody2D"]
+z_index = 3
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
