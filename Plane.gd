@@ -34,15 +34,14 @@ func _physics_process(delta: float) -> void:
 	
 func set_player_health(value):
 	player_health = value
-	print(player_health)
 	if player_health == 0:
 		queue_free()
 		
 func plane_move(delta):
 	var player_input = Vector2.ZERO
-	player_input.y = Input.get_axis("ui_up", "ui_down")
+	player_input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	if player_input.y != 0:
+	if player_input != Vector2.ZERO:
 		velocity = velocity.move_toward(player_input * plane_speed, plane_accelaration * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, plane_friction)	

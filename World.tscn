@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://StarsParticles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://PlayerHPBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MobileJoystick.tscn" type="PackedScene" id=4]
 [ext_resource path="res://PlanetSpawnerBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World.gd" type="Script" id=8]
 
@@ -51,3 +52,5 @@ position = Vector2( 1092.3, 477.507 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 893.232, 569.482 )
+
+[node name="MobileJoystick" parent="Enemy3" instance=ExtResource( 4 )]
